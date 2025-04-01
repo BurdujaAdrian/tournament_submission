@@ -10,11 +10,10 @@ def strategy(my_history: list[int], opponent_history: list[int], rounds: int | N
         if lenl == rounds-2:
             return 0
     if my_history[lenl] == 0 or opponent_history[lenl] == 0:
-        func = lambda seed : (1664525*seed + 1013904223)%2**32
         seed = 0
         for n in range(lenl):
             seed += (2**n) * my_history[n]
-        rand = func(seed)
+        rand = (1664525*seed + 1013904223)%2**32
         forgive = rand % 100 > 80
 
         if forgive:
