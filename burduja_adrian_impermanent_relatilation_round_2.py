@@ -1,5 +1,4 @@
-
-def strategy_round_2(opponent_id:int,my_history: dict[int,list[int]], opponents_history: dict[int,list[int]]) -> tuple[int,int]:
+def strategy_round_3(opponent_id:int,my_history: dict[int,list[int]], opponents_history: dict[int,list[int]]) -> tuple[int,int]:
 
     func = lambda seed : (1664525*seed + 1013904223)%2**32
     curr_hist = my_history[opponent_id]
@@ -28,8 +27,7 @@ def strategy_round_2(opponent_id:int,my_history: dict[int,list[int]], opponents_
     # find the most cooperative opponent
     for key in opponents_history:
         defections = sum(opponents_history[key])
-        if min_def > defections and len(opponets_history[key]) < 200:
+        if min_def > defections and len(opponents_history[key]) < 200:
             next_op = key
 
     return (next_op,response)
-
